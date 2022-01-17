@@ -1,4 +1,4 @@
-# Java Kafka Clients with Avro Serialization and Confluent Schema Registry
+# Kafka Clients in Java with Avro Serialization and Confluent Schema Registry
 
 ## Introduction
 
