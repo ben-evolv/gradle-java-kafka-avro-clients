@@ -4,3 +4,8 @@
 # Ignore Gradle build output directory
 build
 blog-post.md
+
+*.p8
+*.pub
+*snowflake-connect.md
+
