@@ -1,0 +1,20 @@
+{
+  "name": "OrdersAvroConnector",
+  "config": {
+    "connector.class": "com.snowflake.kafka.connector.SnowflakeSinkConnector",
+    "tasks.max": "8",
+    "topics": "orders-avro",
+    "buffer.count.records": "10000",
+    "buffer.flush.time": "60",
+    "buffer.size.bytes": "5000000",
+    "snowflake.url.name": "somealphanumeric.us-east-2.aws.snowflakecomputing.com:443",
+    "snowflake.user.name": "ORDERS_CONNECT_USER",
+    "snowflake.private.key": "-----BEGIN ENCRYPTED PRIVATE KEY-----MIIFLTBXBgkqhkiG9w0BBQ0wSjApBgkqhkiG9w0BBQwwHAQITK3UYl0/zPMCAggAMAwGCCqGSIb3DQIJBQAwHQYJYIZIAWUDBAEqBBAM/xKQyhmn9QU6exCoApV/BIIE0O70/TAiYuF6GCwqDmZZpWOGmFmwk/qIyy3xio1z1n8GI9DV9EMbhhFhnm/b7of4Gs2/DcfxAmL+XwfbfApp/cmzrR367pnE+RWCYHrnf0yTO9clhvBaur4xVE1OZI8W7WZnhweBO+YFvwMCdTE7FCdFID82oUCdduHGHDPIJpmvNZLtD++kshKf+0UtmgBg8UbfAKhytQ+4FV6BvFNJeIHEL1h+sYA2bKelRBLtCmym7wqs1XLxZfoKt6OPamj59TrLNnM5wahEiDF7l91+u1tXH6udc19SnZ5GbiUyj05OhO6k52kaQW70t9M3thPy9gMPptTq9Pf9u2dH6BKvA/duawYSTP+uK1sxDN01ctkS4nSL74mGHGLJG9LSFvy2ipBtm59PMKSy8uoIBSshHeuuukqovd54WgzjuvLsvqLYb1YURVBFAQWwrE7HjqKFdYwz2KDWeuztmd0mtc3l2cMVhbvRIQgD/jNDHIBT4W48kZs8+tp0I1AXAd55p0foibQSjuWGLOhjIilHqyNSSOQZUCGsULTUfO5/Rr/mkTUeqICwJr3J0NdGD9ut4Veg+Fk7kUIRJ/qourW8QQAAVrNHe3xD+mt/8UfSKpO3WRF/L0k3mQJSwHmwESLJkY5CfqPQ+EHcE6EKKJKOG5sflM6KC0iK0msip1vcRpi4p3n7/1cbjPYculVA+uvkKKQdXaGtYiUUDsti2/BeNJDjJIQN7zf7kBrzhExDrjJiurAdtjkGxrkFzT4GWzKl3bpsU5riwKR3T9tJAFD0TvZFQlXI7iTnfG1Ds5diHUT52wU1+SHDjiVu9PjM4PTDGgytEJVToFXjyzGG4lZ5Q11OBcc6VVRfY91FTZbiJU0LibqzrAy5SdQ0RHtGsSa/4AvaaHEfHzMMORaV2EykvAtYM1GIMKCdUP5J8EwZlolTDu+alEncqaNz6Kh/A9zkuvhJLYgeq/2P18kzDFmbrBWE1YBlQ1LEhTp4LBMXdr4isy4rKOZZt7d1VEqjxLHCY18Y9Qj4bgHPByY583fHuO6EoPSbT5hry0cLGsIrx06mYt54zDpAwt7UT56Z72NZ4LVz3K4a8iZAFT4T9y4FWtgHgp3AGeXAMSSTNQlwePKFO6FdJF7tEzoUppQxqvxJOBX4Q8iZicnP+0Uab+hHpsh70k3vu2MOhyX7NVFjhoRxRU7cq8uqrdDGbrCH/aYTsFT+notytc4W06mApBLBLSlfiE/KOtT3XuvnsPFoeJYgs+74na9T7/RqhpMoFz+cWgmm/5R5dExq742BuJkMR+YnPrv09JvvDOgMnHGt+blOqcTXBvxG273TrXY7NbnZR7aI0Rc49pu7OgcwVw8EVtmHW4zFlfYh2vEpkU/fA7qWGxDW6ZHJWV+Fry+mkXMDVyMk6vRXCj8jOm3bqK4Byo9V77r45bEA8A0CrRC65M+axtiNlW974hcTxyfcnUfmHP+lN/rSffShWX3Orhl6bS0qAmN4Xmw8/qVGXglmkRiof612VNJ5esleIFVG5gJdjIcJqOyuu0BaM0T8fDjppx+ccNC4Z5tlCchKSe28acJiRu6c94FhlHxBjmRTRZXnPp2aC3AWGdgDJ7iJbW7JVJaCD4rW31mZZXxrFtGKeo/w/h8H-----END ENCRYPTED PRIVATE KEY-----",
+    "snowflake.private.key.passphrase": "Develop3r",
+    "snowflake.database.name": "ORDERS_DB",
+    "snowflake.schema.name": "ORDERS_SCHEMA",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "com.snowflake.kafka.connector.records.SnowflakeAvroConverter",
+    "value.converter.schema.registry.url": "http://schema-registry:8081"
+  }
+}

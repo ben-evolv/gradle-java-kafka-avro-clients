@@ -8,4 +8,9 @@ blog-post.md
 *.p8
 *.pub
 *snowflake-connect.md
-
+#don't commit the json with your code - this may change to add variables so the connector can be published
+gradle-java-kafka-avro-clients/kafka-connect-integration/*.json
+RSA_PUBLIC_KEY.txt
+snowflake.private.key.txt
+config.txt
+test/*

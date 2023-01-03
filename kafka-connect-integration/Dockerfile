@@ -46,6 +46,6 @@ ENV CONNECT_PLUGIN_PATH="/usr/share/java,/usr/share/confluent-hub-components,/da
 #        && chmod +x snowsql-1.2.3-linux_x86_64.bash \
 #        && confluent-hub install --no-prompt snowflakeinc/snowflake-kafka-connector:1.7.0
 
-
-RUN confluent-hub install --no-prompt snowflakeinc/snowflake-kafka-connector:1.7.0
+# 1/2/23 B Jenkins updated to 1.6.9 as 1.7.0 was not working, Snowflake documentation said 1.7 not supported and We strongly recommend using the latest version: 1.6.9.
+RUN confluent-hub install --no-prompt snowflakeinc/snowflake-kafka-connector:1.6.9
 
