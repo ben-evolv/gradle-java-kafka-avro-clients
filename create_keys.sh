@@ -25,8 +25,13 @@ while IFS='=' read -r key value; do
         "SCHEMA_NAME") schema_name="$value" ;;
         "ROLE_NAME") role_name="$value" ;;
         "USER_NAME") user_name="$value" ;;
+        "SNOWFLAKE_URL_NAME") snowflake_url_name="$(echo -e "${value}" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')" ;;
     esac
+# echo "key: $key"
+# echo "value: $value"
+# echo "Exit status of read: $?"
+
 done < config.txt
 
 # Update snowflake-connector.json with the values from config.txt and the private key
-jq --arg SNOWFLAKE_PRIVATE_KEY "$private_key" --arg user_name "$user_name" --arg passphrase "$passphrase" --arg database_name "$database_name" --arg schema_name "$schema_name" '.config |= . + {"snowflake.private.key":$SNOWFLAKE_PRIVATE_KEY, "snowflake.user.name": $user_name, "snowflake.private.key.passphrase": $passphrase, "snowflake.database.name": $database_name, "snowflake.schema.name": $schema_name}' kafka-connect-integration/snowflake-connector-sample.json > kafka-connect-integration/snowflake-connector.json
+jq --arg SNOWFLAKE_PRIVATE_KEY "$private_key" --arg user_name "$user_name" --arg passphrase "$passphrase" --arg database_name "$database_name" --arg schema_name "$schema_name" --arg snowflake_url_name "$snowflake_url_name" '.config |= . + {"snowflake.private.key":$SNOWFLAKE_PRIVATE_KEY, "snowflake.user.name": $user_name, "snowflake.private.key.passphrase": $passphrase, "snowflake.database.name": $database_name, "snowflake.schema.name": $schema_name, "snowflake.url.name": $snowflake_url_name}' kafka-connect-integration/snowflake-connector-sample.json > kafka-connect-integration/snowflake-connector.json
