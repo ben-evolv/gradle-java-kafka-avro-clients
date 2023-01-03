@@ -17,3 +17,4 @@ test/*
 rsa_key.p8
 rsa_key.pub
 kafka-connect-integration/snowflake-connector.json
+create_user.sql
