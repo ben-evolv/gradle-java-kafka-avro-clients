@@ -14,3 +14,6 @@ RSA_PUBLIC_KEY.txt
 snowflake.private.key.txt
 config.txt
 test/*
+rsa_key.p8
+rsa_key.pub
+kafka-connect-integration/snowflake-connector.json
