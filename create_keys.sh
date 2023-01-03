@@ -16,10 +16,6 @@ openssl rsa -in rsa_key.p8 -pubout -passin pass:$PASSPHRASE -out rsa_key.pub
 public_key=$(sed -n '/-----BEGIN PUBLIC KEY-----/,/-----END PUBLIC KEY-----/p' rsa_key.pub | sed -e '1d' -e '$d' | tr -d '\n')
 echo 'RSA_PUBLIC_KEY = "'$public_key'"' > RSA_PUBLIC_KEY.txt
 
-# Update the value of "snowflake.private.key" in connector_config.json
-jq --arg SNOWFLAKE_PRIVATE_KEY "$private_key" '.config |= .+{"snowflake.private.key":$SNOWFLAKE_PRIVATE_KEY}' kafka-connect-integration/snowflake-connector-sample.json > kafka-connect-integration/snowflake-connector.json
-#!/bin/bash
-
 # Read config.txt and store the values in variables
 while IFS='=' read -r key value; do
     case "$key" in
@@ -32,5 +28,5 @@ while IFS='=' read -r key value; do
     esac
 done < config.txt
 
-# # Update snowflake-connector.json with the values from config.txt
-jq --arg user_name "$user_name" --arg passphrase "$passphrase" --arg database_name "$database_name" --arg schema_name "$schema_name" '.config |= . + ({snowflake.user.name: $user_name, snowflake.private.key.passphrase: $passphrase, snowflake.database.name: $database_name, snowflake.schema.name: $schema_name})' snowflake-connector-sample.json > snowflake-connector.json.tmp 
+# Update snowflake-connector.json with the values from config.txt and the private key
+jq --arg SNOWFLAKE_PRIVATE_KEY "$private_key" --arg user_name "$user_name" --arg passphrase "$passphrase" --arg database_name "$database_name" --arg schema_name "$schema_name" '.config |= . + {"snowflake.private.key":$SNOWFLAKE_PRIVATE_KEY, "snowflake.user.name": $user_name, "snowflake.private.key.passphrase": $passphrase, "snowflake.database.name": $database_name, "snowflake.schema.name": $schema_name}' kafka-connect-integration/snowflake-connector-sample.json > kafka-connect-integration/snowflake-connector.json
