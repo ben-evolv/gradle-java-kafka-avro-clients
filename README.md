@@ -57,11 +57,13 @@ To create the `config.txt` file, follow these steps:
 
 ## How to Run
 
-To run the script, open a terminal and navigate to the directory where the script is located. Then enter the following command:
+To run the create_artifacts script, open a terminal and navigate to the directory where the script is located. Then enter the following command:
 
 bash create_artifacts.sh
 
-After that, follow Adam's blog post [Pipelining Kafka Events into Snowflake with Dockerized Kafka Connect](https://thecodinginterface.com/blog/snowflake-kafka-connect-data-pipeline/) beginning here: 
+After that you will 
+- copy the contents of the code in scripts/build_script.sh to the clipboard and run it in a new worksheet in Snowflake 
+- follow along with the rest of Adam's blog post [Pipelining Kafka Events into Snowflake with Dockerized Kafka Connect](https://thecodinginterface.com/blog/snowflake-kafka-connect-data-pipeline/) beginning to begin streaming events here: 
 
 ### Launch the Docker Compose services.
 
