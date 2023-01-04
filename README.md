@@ -28,7 +28,9 @@ In order to run the scripts in this repository, you will need the following:
 - tr
 - jq (install using `sudo apt install jq`
  in the terminal)
-
+- Install the appropriate version of Docker desktop or docker compoose for your O/S:
+  - For Windows: https://docs.docker.com/desktop/windows/wsl/
+  - to run on an AWS Linux image of Ubuntu I used `sudo apt  install docker-compose`
 ## Compatibility
 
 This has been developed on Windows 10 machines using VS Code on various Ubuntu distros (18.04 and 20) Windows Subsystem for Linux (WSL). It has not been tested on a Mac, but it may work due to both being Linux-based.
