@@ -1,1 +1,0 @@
-snowflake_url_name: qnb65637.snowflakecomputing.com:443
