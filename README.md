@@ -70,4 +70,7 @@ After that you will
 
 `docker-compose up`
 
-As an alternative to viewing the data in Snowsql you can review the data by logging into with Snowsight using the newly created users credentials.
+## Hints
+** You will need to change to the `kafka-connect-integration` directory to run this `http POST http://localhost:8083/connectors @snowflake-connector.json`
+
+** As an alternative to viewing the data in Snowsql you can review the data by logging into with Snowsight using the newly created users credentials.
