@@ -26,7 +26,7 @@ In order to run the scripts in this repository, you will need the following:
 - openssl
 - sed
 - tr
-- jq (install using <button class="btn">sudo apt install jq </button>
+- jq (install using `sudo apt install jq`
  in the terminal)
 
 ## Compatibility
@@ -65,5 +65,4 @@ After that, follow Adam's blog post [Pipelining Kafka Events into Snowflake with
 
 ### Launch the Docker Compose services.
 
-
-<button class="btn">docker-compose up</button>
+`docker-compose up`
