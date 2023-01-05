@@ -6,8 +6,6 @@ This is the demo project source code to tutorials posted on thecodinginterface.c
 
 [Pipelining Kafka Events into Snowflake with Dockerized Kafka Connect](https://thecodinginterface.com/blog/snowflake-kafka-connect-data-pipeline/)
 
-[Pipelining Kafka Events into Snowflake with Dockerized Kafka Connect](https://thecodinginterface.com/blog/snowflake-kafka-connect-data-pipeline/)
-
 <br>
 
 ## Purpose of the forked repo
