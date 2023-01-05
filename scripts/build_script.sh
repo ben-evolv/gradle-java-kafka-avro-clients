@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Read configuration file
-source ../config.txt
+source config.txt
 
 # Read the RSA public key from the RSA_PUBLIC_KEY.txt file
 SNOWFLAKE_PUBLIC_KEY=$(cat ../RSA_PUBLIC_KEY.txt | grep RSA_PUBLIC_KEY | cut -d "=" -f2)
