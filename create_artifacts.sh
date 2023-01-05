@@ -35,3 +35,32 @@ done < config.txt
 
 # Update snowflake-connector.json with the values from config.txt and the private key
 jq --arg SNOWFLAKE_PRIVATE_KEY "$private_key" --arg user_name "$user_name" --arg passphrase "$passphrase" --arg database_name "$database_name" --arg schema_name "$schema_name" --arg snowflake_url_name "$snowflake_url_name" '.config |= . + {"snowflake.private.key":$SNOWFLAKE_PRIVATE_KEY, "snowflake.user.name": $user_name, "snowflake.private.key.passphrase": $passphrase, "snowflake.database.name": $database_name, "snowflake.schema.name": $schema_name, "snowflake.url.name": $snowflake_url_name}' kafka-connect-integration/snowflake-connector-sample.json > kafka-connect-integration/snowflake-connector.json
+
+# # Read the values from config.txt and set them as environment variables
+
+# # Set the SNOWSQL_USER, SNOWSQL_PASSWORD, and SNOWFLAKE_URL_NAME environment variables
+# export SNOWSQL_USER
+# export SNOWSQL_PASSWORD
+# export SNOWFLAKE_URL_NAME
+
+# Read the SNOWSQL_USER, SNOWSQL_PASSWORD, and SNOWFLAKE_URL_NAME values from config.txt
+while IFS='=' read -r key value; do
+    case "$key" in
+        "SNOWSQL_USER") SNOWSQL_USER="$value" ;;
+        "SNOWSQL_PASSWORD") SNOWSQL_PASSWORD="$value" ;;
+        "SNOWFLAKE_URL_NAME") SNOWFLAKE_URL_NAME="$value" ;;
+    esac
+
+done < config.txt
+
+# Set the SNOWSQL_USER, SNOWSQL_PASSWORD, and SNOWFLAKE_URL_NAME environment variables
+export SNOWSQL_USER
+export SNOWSQL_PASSWORD
+export SNOWFLAKE_URL_NAME
+
+echo $SNOWSQL_USER
+echo $SNOWSQL_PASSWORD
+echo $SNOWFLAKE_URL_NAME
+
+# Execute the SQL script using snowsql
+snowsql --config ~/.snowsql/config -f create_user.sql -o log_level=DEBUG
